@@ -32,16 +32,26 @@ npm start
 Consulta los siguientes documentos para más detalles sobre el sistema:
 
 Guía de Usuario: Cómo navegar y usar el sistema.
+
 Documentación API: Descripción de los endpoints y funciones del backend.
+
 Estructura de la Base de Datos: Descripción de los modelos y relaciones.
+
 🤝 Contribuciones
+
 Las contribuciones son bienvenidas 💡. Si deseas mejorar el proyecto, ¡no dudes en hacer un fork y enviar un pull request!
 
 Realiza un fork del proyecto.
+
 Crea una rama con tus cambios: git checkout -b mejora-feature.
+
 Realiza un commit de tus cambios: git commit -m 'Añadir nueva funcionalidad'.
+
 Sube los cambios a tu repositorio: git push origin mejora-feature.
+
 Abre un pull request en GitHub.
+
+
 📝 Licencia
 Este proyecto está bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
 

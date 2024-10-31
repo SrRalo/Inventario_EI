@@ -19,6 +19,7 @@ Sigue estos pasos para instalar y ejecutar el proyecto en tu máquina:
 Clona el repositorio:
 
 git clone https://github.com/SrRalo/Inventario_EI.git
+
 cd Inventario_EI
 
 Instala las dependencias:

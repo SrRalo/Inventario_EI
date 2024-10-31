@@ -2,12 +2,21 @@
 Bienvenido al sistema de Inventario de Equipos Informáticos 👋, una herramienta intuitiva y eficiente para gestionar y organizar todos los equipos tecnológicos de tu organización. Este sistema facilita el registro, consulta y administración de equipos, mejorando el control y mantenimiento de inventarios.
 
 🚀 Funcionalidades del Proyecto
+
 🔐 Autenticación de Usuarios: Seguridad al ingresar, permitiendo solo acceso autorizado.
+
 📁 Registro y Búsqueda de Equipos: Agrega y encuentra equipos por código o manualmente.
+
 📊 Dashboard General: Visualiza estadísticas y gráficos para entender mejor tu inventario.
+
 📋 Reportes: Emite reportes detallados para el seguimiento de equipos.
+
 📝 Gestión de Equipos: Incluye agregar, editar, dar de baja y realizar actualizaciones de equipos.
+
 ⚙️ Configuración del Sistema: Personaliza opciones para ajustar el sistema a tus necesidades.
+
+
+
 🛠️ Tecnologías Utilizadas
 Frontend: HTML, CSS, JavaScript, React
 Backend: Node.js

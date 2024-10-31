@@ -1,0 +1,403 @@
+
+.wrapper{
+    width: 420px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+    display: flex;
+    align-items: center;
+}
+
+.registerbox .loginbox {
+    width: 100%;
+    padding: 40px;
+}
+
+
+
+.wrapper .registerbox {
+    position: absolute;
+    translate: 400px;
+}
+
+.wrapper.active .loginbox {
+    transition: none;
+    translate: -400px;
+}
+
+.wrapper.active .registerbox {
+    transition: transalate .18s ease;
+    translate: 0;
+}
+
+
+.wrapper h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.wrapper .input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px 45px 20px 40px;
+}
+
+.input-box input::placeholder {
+    color: #fff;
+}
+
+.input-box .icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+  
+.wrapper button {
+    width: 100%;
+    height: 45px;
+    background-color: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 700;
+}
+
+.wrapper .register-link {
+    font-size: 14.5px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+p a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
+const LoginForm = () => {
+
+    const [action, setAction] = useState('');
+
+    const registerLink = () => {
+        setAction('active');
+    };
+
+    const loginLink = () => {
+      setAction();
+  };
+
+import React, { useState } from 'react'
+import './LoginForm.css';
+import { MdEmail } from "react-icons/md";
+import { RiLockPasswordLine } from "react-icons/ri";
+import { FaUser } from "react-icons/fa";
+
+
+
+  return (
+    <div className={`wrapper${action}`}>
+      
+      <div className="loginbox">
+        <form action="">
+            <h1>Ingreso</h1>
+            <div className="input-box">
+            <MdEmail className='icon' />
+            <input type="text" placeholder='Email' required/>
+            </div>
+            <div className="input-box">
+            <RiLockPasswordLine className='icon'/>
+            <input type="password" placeholder='Contraseña' required/>
+            </div>
+            <button type="submit">Ingresar</button>    
+        <div className="register-link"></div>
+            <p>Aún no tienes una cuenta? <a href="#" onClick={registerLink}>Registro</a></p>
+        </form>
+      </div>
+
+      <div className='registerbox'>
+        <form action="">
+            <h1>Registro</h1>
+            <div className='input-box'>
+            <FaUser className='icon'/>
+            <input type="text" placeholder='Nombres' required/>
+            </div>
+            <div className="input-box">
+            <MdEmail className='icon' />
+            <input type="text" placeholder='Email' required/>
+            </div>
+            <div className="input-box">
+            <RiLockPasswordLine className='icon'/>
+            <input type="password" placeholder='Contraseña' required/>
+            </div>
+            <button type="submit">Registro</button>    
+        <div className="register-link"></div>
+            <p>Ya tienes una cuenta? <a href="#" onClick={loginLink}>Ingresar</a></p>
+        </form>
+      </div>
+
+  </div>
+
+  );
+};
+
+export default LoginForm;
+
+
+
+background de imaaagen
+  background: url('./Components/Assets/background2.jpg') no-repeat;
+  background-size: cover;
+  background-position: center;
+
+
+  hacer un CRUD para un sistema de gestión de inventarios de equipos informáticos que están divididos por edificios, se debe poder añadir 4 tipos de equipos informáticos, cada uno debe tener un código para identificarlo, el estado (prestado, en reparación o disponible) y su ubicación por edificio 
+
+  import React, { useState } from 'react';
+import equiposData from '../Dashboard/equipos.json';
+
+function procesarEquipos(equipos) {
+  const totales = {
+    monitores: 0,
+    teclados: 0,
+    mouse: 0,
+    computadoras: 0,
+    reparacion: 0,
+    disponibles: 0,
+    prestados: 0,
+  };
+
+  equipos.forEach(equipo => {
+    totales.monitores += equipo.monitores;
+    totales.teclados += equipo.teclados;
+    totales.mouse += equipo.mouse;
+    totales.computadoras += equipo.computadoras;
+
+    if (equipo.estado === "reparacion") {
+      totales.reparacion++;
+    } else if (equipo.estado === "disponible") {
+      totales.disponibles++;
+    } else if (equipo.estado === "prestado") {
+      totales.prestados++;
+    }
+  });
+
+  return totales;
+}
+
+function crearTabla(totales) {
+  return (
+    <table>
+      <thead>
+        <tr>
+          <th>Equipo</th>
+          <th>Total</th>
+          <th>Reparación</th>
+          <th>Disponibles</th>
+          <th>Prestados</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monitores</td>
+          <td>{totales.monitores}</td>
+          <td>{totales.reparacionMonitores}</td>
+          <td>{totales.disponiblesMonitores}</td>
+          <td>{totales.prestadosMonitores}</td>
+        </tr>
+        <tr>
+          <td>Teclados</td>
+          <td>{totales.teclados}</td>
+          <td>{totales.reparacionTeclados}</td>
+          <td>{totales.disponiblesTeclados}</td>
+          <td>{totales.prestadosTeclados}</td>
+        </tr>
+        <tr>
+          <td>Mouse</td>
+          <td>{totales.mouse}</td>
+          <td>{totales.reparacionMouse}</td>
+          <td>{totales.disponiblesMouse}</td>
+          <td>{totales.prestadosMouse}</td>
+        </tr>
+        <tr>
+          <td>Computadoras</td>
+          <td>{totales.computadoras}</td>
+          <td>{totales.reparacionComputadoras}</td>
+          <td>{totales.disponiblesComputadoras}</td>
+          <td>{totales.prestadosComputadoras}</td>
+        </tr>
+      </tbody>
+    </table>
+  );
+}
+
+function Dashboard() {
+  const [equiposTotales, setEquiposTotales] = useState(procesarEquipos(equiposData));
+
+  return (
+    <div>
+      <h1>Dashboard de Equipos</h1>
+      {crearTabla(equiposTotales)}
+    </div>
+  );
+}
+
+export default Dashboard;
+
+
+      {/*<header className='container'>
+        <Main/>
+  </header>*/}
+
+      <div className='bodyM'>
+        <SignForm/>
+        </div>
+
+
+
+    <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={isLoggedIn ? <Dashboard /> : <SignForm />} />
+          <Route path="/crud" element={isLoggedIn ? <Crud /> : <SignForm />} />
+          <Route path="/reportes" element={isLoggedIn ? <Reportes /> : <SignForm />} />
+        </Routes>
+    </BrowserRouter>
+
+
+    crud:
+    import React, { useState } from 'react';
+import '../CRUD/crud.css';
+import { MdDelete, MdEdit  } from "react-icons/md";
+
+
+const Crud = () => {
+  const [equipos, setEquipos] = useState([]);
+  const [equipoActual, setEquipoActual] = useState({});
+  const [modo, setModo] = useState('agregar'); // 'agregar', 'editar'
+
+  const handleAgregarEquipo = (equipo) => {
+    setEquipos([...equipos, equipo]);
+    setEquipoActual({});
+    setModo('agregar');
+  };
+
+  const handleEditarEquipo = (equipo) => {
+    setEquipos(equipos.map((e) => (e.id === equipo.id ? equipo : e)));
+    setEquipoActual({});
+    setModo('agregar');
+  };
+
+  const handleEliminarEquipo = (idEquipo) => {
+    setEquipos(equipos.filter((e) => e.id !== idEquipo));
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setEquipoActual({ ...equipoActual, [name]: value });
+  };
+
+  return (
+    <div className='crud-container'>
+      <h2 className='tittle1'>Inventario de Equipos Informáticos</h2>
+      <form className='formulario' onSubmit={(event) => {
+        event.preventDefault();
+        if (modo === 'agregar') {
+          handleAgregarEquipo(equipoActual);
+        } else {
+          handleEditarEquipo(equipoActual);
+        }
+      }}>
+        <label className='pollo'>Código:</label>
+        <input type="text" name="codigo" value={equipoActual.codigo} onChange={handleChange} required />
+        <br/><label className='pollo'>Tipo de Equipo:</label>
+        <select name="tipo" value={equipoActual.tipo} onChange={handleChange} required>
+          <option value="computadora">Computadora</option>
+          <option value="monitor">Monitor</option>
+          <option value="teclado">Teclado</option>
+          <option value="mouse">Mouse</option>
+        </select>
+        <br/><label className='pollo'>Estado:</label>
+        <select name="estado" value={equipoActual.estado} onChange={handleChange} required>
+          <option value="prestado">Prestado</option>
+          <option value="reparacion">En Reparación</option>
+          <option value="disponible">Disponible</option>
+        </select>
+        <br/><label className='pollo'>Edificio:</label>
+        <select name="edificio" value={equipoActual.edificio} onChange={handleChange} required>
+          <option value="edificio1">Facultad de Ciencias Administrativas, Contables y Comercio</option>
+          <option value="edificio2">Facultad de Ciencias de la Salud</option>
+          <option value="edificio3">Facultad de Ciencias Sociales, Derecho y Bienestar</option>
+          <option value="edificio4">Facultad de Ciencias de la Vida y Tecnología</option>
+          <option value="edificio5">Facultad de Educación, Turismo y Humanidades</option>
+          <option value="edificio6">Facultad de Ingeniería, Industria y Arquitectura</option>
+        </select>
+        <button type="submit" className='button1'>{modo === 'agregar' ? 'Agregar Equipo' : 'Editar Equipo'}</button>
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Tipo de Equipo</th>
+            <th>Estado</th>
+            <th>Edificio</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {equipos.map((equipo) => (
+            <tr key={equipo.id}>
+              <td>{equipo.codigo}</td>
+              <td>{equipo.tipo}</td>
+              <td>{equipo.estado}</td>
+              <td>{equipo.edificio}</td>
+              <td>
+                <button className='edit' onClick={() => { setEquipoActual(equipo); setModo('editar'); }}><MdEdit className='icon1' /></button>
+                <button className='edit2' onClick={() => handleEliminarEquipo(equipo.id)}><MdDelete className='icon1'/></button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+};
+
+export default Crud;
+
+
+signnform:
+
+
+
+
+
+

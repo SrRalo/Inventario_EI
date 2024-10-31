@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    align-items: center;
+}
+
+.SignForm {
+    display: flex;
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.reportes-page {
+    align-items: center;
+}
+
+.search-div {
+    padding: 15px;
+}
+
+.logo-link {
+    padding: 5px;
+    margin: 5px;
+    width: 60px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #531253;
+}
+
+.logo {
+    text-decoration: none;
+}
+
+.menu {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.menu-link {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.2rem;
+}
+
+.menu-link:hover {
+    text-decoration: underline;
+}
+
